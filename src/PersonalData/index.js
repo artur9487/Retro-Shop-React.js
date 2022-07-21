@@ -44,7 +44,7 @@ const PersonalData = () => {
 						sx={{ minHeight: '100vh' }}
 						className={`${fadeIn} container`}
 						direction={matchState ? 'row' : 'column'}
-						justifyContent='space-evenly'
+						justifyContent={!matches3 ? 'space-evenly' : 'flex-start'}
 						alignItems={matchState ? 'flex-start' : 'center'}
 						spacing={5}>
 						{orders.length > 0 ? (

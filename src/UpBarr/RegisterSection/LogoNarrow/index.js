@@ -21,7 +21,7 @@ const LogoNarrow = ({
 	handleCloseNavMenu,
 	pages
 }) => {
-	const { matches3 } = useContext(MainContext);
+	const { matches3, user } = useContext(MainContext);
 	const { fadeIn, setFade } = useCustomFadeHook();
 	const [matchState, setMatchState] = useState(false);
 	const navigate = useNavigate();
@@ -45,42 +45,44 @@ const LogoNarrow = ({
 				flexGrow: 1,
 				display: { xs: !matchState === false ? 'none' : 'flex', sm: 'none' }
 			}}>
-			<Box>
-				<IconButton
-					aria-label='account of current user'
-					aria-controls='menu-appbar'
-					aria-haspopup='true'
-					onClick={handleOpenNavMenu}
-					color='inherit'>
-					<MenuIcon sx={{ fontSize: 35 }} />
-				</IconButton>
-				<Menu
-					id='menu-appbar'
-					anchorEl={anchorElNav}
-					anchorOrigin={{
-						vertical: 'bottom',
-						horizontal: 'left'
-					}}
-					keepMounted
-					transformOrigin={{
-						vertical: 'top',
-						horizontal: 'left'
-					}}
-					open={Boolean(anchorElNav)}
-					onClose={handleCloseNavMenu}>
-					{pages.map((page, indx) => (
-						<MenuItem key={indx} onClick={handleCloseNavMenu}>
-							<Link to={page.navLink} className='links'>
-								<Typography
-									sx={{ color: 'black', fontFamily: 'Sofia', fontSize: 20 }}
-									textAlign='center'>
-									{page.navName}
-								</Typography>
-							</Link>
-						</MenuItem>
-					))}
-				</Menu>
-			</Box>
+			{user ? (
+				<Box>
+					<IconButton
+						aria-label='account of current user'
+						aria-controls='menu-appbar'
+						aria-haspopup='true'
+						onClick={handleOpenNavMenu}
+						color='inherit'>
+						<MenuIcon sx={{ fontSize: 35 }} />
+					</IconButton>
+					<Menu
+						id='menu-appbar'
+						anchorEl={anchorElNav}
+						anchorOrigin={{
+							vertical: 'bottom',
+							horizontal: 'left'
+						}}
+						keepMounted
+						transformOrigin={{
+							vertical: 'top',
+							horizontal: 'left'
+						}}
+						open={Boolean(anchorElNav)}
+						onClose={handleCloseNavMenu}>
+						{pages.map((page, indx) => (
+							<MenuItem key={indx} onClick={handleCloseNavMenu}>
+								<Link to={page.navLink} className='links'>
+									<Typography
+										sx={{ color: 'black', fontFamily: 'Sofia', fontSize: 20 }}
+										textAlign='center'>
+										{page.navName}
+									</Typography>
+								</Link>
+							</MenuItem>
+						))}
+					</Menu>
+				</Box>
+			) : null}
 			<Typography
 				onClick={() => navigate('/')}
 				className='text'

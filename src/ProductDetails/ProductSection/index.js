@@ -9,6 +9,7 @@ import styled from 'styled-components';
 
 const ProductSection = () => {
 	const {
+		matches3,
 		product,
 		handleAdd,
 		count,
@@ -61,7 +62,7 @@ const ProductSection = () => {
 			className={fadeIn}
 			direction='column'
 			spacing={2}
-			sx={{ width: '60%' }}>
+			sx={{ width: !matches3 ? '60%' : '100%' }}>
 			<Box
 				sx={{
 					borderRadius: 5,

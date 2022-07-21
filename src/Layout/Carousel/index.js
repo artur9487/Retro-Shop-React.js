@@ -55,20 +55,22 @@ const CarouselSection = () => {
 				<Typography
 					sx={{
 						fontFamily: 'Oleo Script Swash Caps',
-						fontSize: !matches3 ? 40 : 20
+						fontSize: !matches3 ? 40 : 25
 					}}>
 					Change Your view for new oppurtunites
 				</Typography>
 			</div>
-			<div onClick={() => executeScroll()} className='legend legend2'>
-				<Typography
-					sx={{
-						fontSize: !matches3 ? 20 : 15,
-						fontFamily: 'Oleo Script Swash Caps'
-					}}>
-					Shop Now
-				</Typography>
-			</div>
+			{!matches3 ? (
+				<div onClick={() => executeScroll()} className='legend legend2'>
+					<Typography
+						sx={{
+							fontSize: !matches3 ? 20 : 15,
+							fontFamily: 'Oleo Script Swash Caps'
+						}}>
+						Shop Now
+					</Typography>
+				</div>
+			) : null}
 		</>
 	);
 
@@ -77,9 +79,14 @@ const CarouselSection = () => {
 			<Box
 				sx={{
 					maxWidth: 900,
-					margin: 'auto'
+					margin: 'auto',
+					px: !matches ? 10 : !matches3 ? 5 : 2,
+					pt: !matches ? 10 : !matches3 ? 5 : 2,
+					bgcolor: 'rgb(246, 246, 246)',
+					boxShadow: '10px 10px 10px rgb(204, 204, 204)'
 				}}>
 				<Carousel
+					className='caro'
 					infiniteLoop={true}
 					autoPlay={true}
 					width='100%'

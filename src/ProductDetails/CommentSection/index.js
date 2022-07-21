@@ -19,8 +19,16 @@ import styled from 'styled-components';
 import useCustomFadeHook from '../../customHooks/customFadeHook';
 
 const CommentSection = () => {
-	const { productID, product, user, pathname, fadeIn, error, setError } =
-		useContext(Context);
+	const {
+		productID,
+		product,
+		user,
+		pathname,
+		fadeIn,
+		error,
+		setError,
+		matches3
+	} = useContext(Context);
 	const [comment, setComment] = useState('');
 	const [value, setValue] = useState(0);
 	const dispatch = useDispatch();
@@ -70,8 +78,15 @@ const CommentSection = () => {
 
 	return (
 		<>
-			<Stack className={fadeIn} direction='column' sx={{ width: '40%' }}>
-				<div style={{ overflowY: 'scroll', height: '400px' }}>
+			<Stack
+				className={fadeIn}
+				direction='column'
+				sx={{ width: !matches3 ? '40%' : '100%' }}>
+				<div
+					style={{
+						overflowY: 'scroll',
+						height: !comments.length <= 0 ? '400px' : '100px'
+					}}>
 					<List sx={{ width: '100%', bgcolor: 'background.paper' }}>
 						{comments.length === 0 ? (
 							<Typography
@@ -105,7 +120,6 @@ const CommentSection = () => {
 													secondaryTypographyProps={{
 														display: 'block',
 														fontSize: 16,
-
 														fontFamily: 'Sofia',
 														fontStyle: 'italic'
 													}}
@@ -188,7 +202,7 @@ const CommentSection = () => {
 								sx={{
 									fontFamily: OleoFont,
 									fontSize: 20,
-									width: '50%',
+									width: !matches3 ? '50%' : '75%',
 									textTransform: 'none',
 									color: 'black'
 								}}

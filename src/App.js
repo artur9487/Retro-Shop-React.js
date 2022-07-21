@@ -26,9 +26,9 @@ function App() {
 		}
 	});
 	const user = useSelector((state) => state.AuthData.user);
-	const matches = useMediaQuery('(max-width:1200px)');
-	const matches2 = useMediaQuery('(max-width:900px)');
-	const matches3 = useMediaQuery('(max-width:600px)');
+	const matches = useMediaQuery('(max-width:1199px)');
+	const matches2 = useMediaQuery('(max-width:899px)');
+	const matches3 = useMediaQuery('(max-width:599px)');
 	return (
 		<ThemeProvider theme={theme}>
 			<MainContext.Provider

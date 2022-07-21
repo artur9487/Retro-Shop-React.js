@@ -85,12 +85,10 @@ const Login = () => {
 	return (
 		<>
 			<section className={fadeIn}>
-				<StartBar>
+				<StartBar heightSmall={'280px'}>
 					<Box
 						component='form'
-						sx={{
-							'& > :not(style)': { m: 1, width: '30ch' }
-						}}
+						sx={{ width: '100%' }}
 						noValidate
 						autoComplete='off'>
 						<Stack direction='column' spacing={3}>

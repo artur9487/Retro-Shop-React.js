@@ -20,7 +20,7 @@ import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 
 const Layout = () => {
-	const { matches } = useContext(MainContext);
+	const { matches, matches3 } = useContext(MainContext);
 	const dispatch = useDispatch();
 	//----------------------------FADE IN DURING SCROLLING -------------------------------
 	const myRef = useRef(null);
@@ -77,7 +77,7 @@ const Layout = () => {
 					sx={{ width: '100%', minHeight: '100vh', margin: 'auto' }}
 					direction='column'>
 					<CarouselSection />
-					<Box sx={{ mt: 3 }} ref={myRef}>
+					<Box sx={{ mt: !matches3 ? 3 : 0 }} ref={myRef}>
 						<Box sx={{ width: '100%' }} ref={myRefek} className={fadeIn}>
 							<Stack
 								sx={{ p: 4, ml: !matches ? 25 : 0 }}
@@ -88,16 +88,16 @@ const Layout = () => {
 									sx={{
 										bgcolor: 'black',
 										height: 3,
-										width: 200,
+										width: !matches3 ? 200 : 50,
 										borderRadius: 5
 									}}
 								/>
 								<Typography
-									variant='h4'
+									variant={'h4'}
 									textAlign='center'
 									sx={{
 										fontFamily: 'Oleo Script Swash Caps',
-										p: 2
+										p: !matches3 ? 2 : 1
 									}}>
 									Chose Your style
 								</Typography>
@@ -105,7 +105,7 @@ const Layout = () => {
 									sx={{
 										bgcolor: 'black',
 										height: 3,
-										width: 200,
+										width: !matches3 ? 200 : 50,
 										borderRadius: 5
 									}}
 								/>

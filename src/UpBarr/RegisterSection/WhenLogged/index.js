@@ -10,7 +10,7 @@ import { IconButton } from '@mui/material';
 import { MainContext } from '../../../Context';
 
 const WhenLogged = ({ cartCount, handleCart, handleSignOut }) => {
-	const { matches3, user } = useContext(MainContext);
+	const { matches3, matches2, user } = useContext(MainContext);
 	const { fadeIn, setFade } = useCustomFadeHook();
 	const [matchState, setMatchState] = useState(false);
 
@@ -30,12 +30,12 @@ const WhenLogged = ({ cartCount, handleCart, handleSignOut }) => {
 				justifyContent={matchState ? 'space-evenly' : 'center'}
 				direction='row'
 				alignItems='center'
-				sx={{ width: { xs: 150, sm: 250 } }}>
+				sx={{ width: { xs: 100, sm: 225, md: 250 } }}>
 				<Stack
 					alignItems='center'
 					justifyContent={matchState ? 'space-evenly' : 'center'}
 					direction={matchState ? 'row' : 'column'}
-					sx={{ width: '65%' }}>
+					sx={{ width: !matches2 ? '65%' : '50%' }}>
 					<Badge badgeContent={cartCount} color='primary'>
 						<Tooltip title='Open Cart'>
 							<IconButton
@@ -44,10 +44,11 @@ const WhenLogged = ({ cartCount, handleCart, handleSignOut }) => {
 									mt: 1,
 									bg: 'black',
 									color: 'black',
-									display: 'block'
+									display: 'block',
+									fontSize: !matches3 ? 12 : 4
 								}}
 								onClick={handleCart}>
-								<ShoppingCartIcon />
+								<ShoppingCartIcon sx={{ fontSize: !matches3 ? 25 : 20 }} />
 							</IconButton>
 						</Tooltip>
 					</Badge>
@@ -56,7 +57,7 @@ const WhenLogged = ({ cartCount, handleCart, handleSignOut }) => {
 				<Button
 					color='inherit'
 					sx={{
-						fontSize: 20,
+						fontSize: 19,
 						textTransform: 'none',
 						my: 2,
 						color: 'black',

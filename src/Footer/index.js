@@ -36,15 +36,15 @@ const Footer = () => {
 					width: '100%',
 					minHeight: 200,
 					maxHeight: 700,
-					bgcolor: 'white',
+					bgcolor: 'rgb(246, 246, 246)',
 					py: 5,
-					my: 2
+					mt: 10
 				}}>
 				<Grid
-					rowSpacing={5}
+					rowSpacing={!matches3 ? 5 : 3}
 					direction={matches3 ? 'column' : 'row'}
 					container
-					spacing={2}>
+					spacing={!matches3 ? 2 : 1}>
 					<Grid
 						direction='column'
 						alignItems='center'
@@ -54,11 +54,16 @@ const Footer = () => {
 						md={3}>
 						<Typography
 							sx={{ fontFamily: 'Oleo Script Swash Caps' }}
-							variant='h4'>
+							variant={!matches3 ? 'h4' : 'h5'}>
 							RetroShop
 						</Typography>
 					</Grid>
-					<Grid md={6} container item spacing={4} direction='row'>
+					<Grid
+						md={6}
+						container
+						item
+						spacing={!matches3 ? 4 : 0}
+						direction='row'>
 						{data.map((item1, indx) => {
 							return (
 								<Grid
@@ -68,7 +73,7 @@ const Footer = () => {
 									xs={6}
 									container
 									item
-									spacing={2}
+									spacing={!matches3 ? 2 : 1}
 									direction='column'>
 									{item1.dat.map((item2, indx) => {
 										return (
@@ -84,7 +89,10 @@ const Footer = () => {
 														console.log(`You clicked me!${item2}`)
 													}>
 													<Typography
-														sx={{ fontFamily: 'Sofia', fontSize: 20 }}
+														sx={{
+															fontFamily: 'Sofia',
+															fontSize: !matches3 ? 20 : 15
+														}}
 														color='black'
 														variant='subtitle1'>
 														{item2}
@@ -110,13 +118,13 @@ const Footer = () => {
 						<Grid item xs={3}>
 							<Typography
 								sx={{ fontFamily: 'Sofia', fontWeight: 1000 }}
-								variant='h5'
+								variant={matches3 ? 'h5' : 'h6'}
 								component='div'>
 								Need help?
 							</Typography>
 							<Typography
 								sx={{ fontFamily: 'Sofia', fontWeight: 1000 }}
-								variant='h5'
+								variant={matches3 ? 'h5' : 'h6'}
 								component='div'>
 								Contact Us
 							</Typography>

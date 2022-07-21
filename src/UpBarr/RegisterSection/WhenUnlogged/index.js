@@ -19,7 +19,7 @@ const WhenUnlogged = ({ handleCloseNavMenu }) => {
 	return (
 		<>
 			<Stack
-				direction='row'
+				direction={!matches3 ? 'row' : 'column'}
 				justifyContent='center'
 				alignItems='center'
 				className={fadeIn}>
@@ -32,7 +32,7 @@ const WhenUnlogged = ({ handleCloseNavMenu }) => {
 							sx={{
 								textTransform: 'none',
 								fontSize: 20,
-								my: 2,
+								my: 0,
 								color: 'black',
 								display: 'block',
 								fontFamily: 'Sofia'

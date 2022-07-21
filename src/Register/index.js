@@ -99,11 +99,11 @@ const Register = () => {
 	return (
 		<>
 			<section className={fadeIn}>
-				<StartBar>
+				<StartBar heightSmall={'370px'}>
 					<Box
 						component='form'
 						sx={{
-							'& > :not(style)': { m: 1, width: '30ch' }
+							width: '100%'
 						}}
 						noValidate
 						autoComplete='off'>

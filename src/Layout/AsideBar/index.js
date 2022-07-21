@@ -218,7 +218,13 @@ const AsideBar = () => {
 			{matchState ? (
 				<Box
 					className={fadeIn}
-					sx={{ minHeight: 450, width: 200, margin: 'auto' }}>
+					sx={{
+						minHeight: 450,
+						width: 200,
+						margin: 'auto',
+						boxShadow: '2px 2px 7px rgb(204, 204, 204)',
+						p: 4
+					}}>
 					<Typography
 						sx={{
 							fontFamily: OleoFont,

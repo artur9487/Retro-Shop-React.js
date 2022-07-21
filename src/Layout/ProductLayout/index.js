@@ -11,6 +11,7 @@ import { Stack, Typography } from '@mui/material';
 import '../../globalVariables.scss';
 import useCustomFadeHook from '../../customHooks/customFadeHook';
 import { MainContext } from '../../Context';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 const ProductLayout = () => {
 	const { matches, matches2, matches3 } = useContext(MainContext);
@@ -18,6 +19,8 @@ const ProductLayout = () => {
 	const products = useSelector((state) => state.productsData);
 	const { fadeIn, setFade } = useCustomFadeHook();
 	const [page, setPage] = useState(1);
+	const matches1400 = useMediaQuery('(max-width:1400px)');
+	const matches1200 = useMediaQuery('(min-width:1200px)');
 
 	//--------------FADE LOGIC----------------------------------
 	const func = () => {
@@ -64,7 +67,10 @@ const ProductLayout = () => {
 	});
 	return (
 		<>
-			<Stack alignItems='center' justifyContent='center' sx={{ p: 3 }}>
+			<Stack
+				alignItems='center'
+				justifyContent='center'
+				sx={{ p: 3, marginLeft: matches1400 && matches1200 ? 10 : 0 }}>
 				{products.products.length > 0 ? (
 					<Grid
 						className={fadeIn}
@@ -83,7 +89,7 @@ const ProductLayout = () => {
 						No products
 					</Typography>
 				)}
-				<Stack direction='row' justifyContent='center' sx={{ my: 4, pr: 20 }}>
+				<Stack direction='row' justifyContent='center' sx={{ my: 4, pr: 0 }}>
 					<Pagination
 						count={products.productNumber}
 						page={page}
