@@ -62,7 +62,7 @@ const DialogComp = () => {
 								style={{ objectFit: 'contain' }}
 								className='myImg'
 								src={image}
-								alt='product image'
+								alt='product'
 							/>
 						</Box>
 						<form>
