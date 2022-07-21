@@ -1,5 +1,5 @@
 /** @format */
-import React, { useEffect, useContext } from 'react';
+import React, { useEffect, useContext, useCallback, useMemo } from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import one from './1.jpg';
@@ -27,10 +27,8 @@ const CarouselSection = () => {
 	};
 
 	useEffect(() => {
-		const func = async () => {
-			setFade();
-		};
-		func();
+		setFade();
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	//------------EXECUTING THE SCROLL FUNCTION---------------------
@@ -47,7 +45,7 @@ const CarouselSection = () => {
 		return () => {
 			dispatch(clear_scroll);
 		};
-	}, [scrollPos, barHeight]);
+	}, [scrollPos, barHeight, dispatch, startScroll]);
 	//----------------------------------------------------------------------
 	const text = (
 		<>
@@ -92,15 +90,15 @@ const CarouselSection = () => {
 					width='100%'
 					transitionTime={3}>
 					<div>
-						<img className='img' src={one} />
+						<img className='img' src={one} alt='image1' />
 						{text}
 					</div>
 					<div>
-						<img className='img' src={two} />
+						<img className='img' src={two} alt='image2' />
 						{text}
 					</div>
 					<div>
-						<img className='img' src={three} />
+						<img className='img' src={three} alt='image3' />
 						{text}
 					</div>
 				</Carousel>

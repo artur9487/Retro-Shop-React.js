@@ -1,7 +1,7 @@
 /** @format */
 
 import React, { useEffect, useState, useContext } from 'react';
-import { Stack, Button, Typography } from '@mui/material';
+import { Stack, Button } from '@mui/material';
 import { Link } from 'react-router-dom';
 import useCustomFadeHook from '../../../customHooks/customFadeHook';
 import { MainContext } from '../../../Context';
@@ -20,11 +20,9 @@ const OptionBar = ({ handleCloseNavMenu, pages }) => {
 
 	//----------FADE IN LOGIC---------------
 	useEffect(() => {
-		const func = async () => {
-			setFade();
-			setMatchState(!matches3);
-		};
-		func();
+		setFade();
+		setMatchState(!matches3);
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [matches3]);
 
 	return (

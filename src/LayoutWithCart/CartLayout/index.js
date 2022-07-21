@@ -28,10 +28,8 @@ const CartLayout = () => {
 	const { fadeIn, setFade } = useCustomFadeHook();
 
 	useEffect(() => {
-		const func = async () => {
-			setFade();
-		};
-		func();
+		setFade();
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [notif]);
 
 	useEffect(() => {
@@ -56,9 +54,11 @@ const CartLayout = () => {
 				setNotif('err');
 				return;
 			}
-			const proCategories = [];
-			for (var i = 0; i < state2.length; i++) {
-				const catIndx = proCategories.findIndex(
+			let proCategories = [];
+
+			for (let i = 0; i < state2.length; i++) {
+				let catIndx;
+				catIndx = proCategories.findIndex(
 					(item) => item === state2[i].category
 				);
 				if (catIndx < 0) {

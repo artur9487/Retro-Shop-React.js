@@ -42,7 +42,7 @@ const data = [
 ];
 
 const AsideBar = () => {
-	const { matches, user } = useContext(MainContext);
+	const { matches } = useContext(MainContext);
 	const dispatch = useDispatch();
 	const [category, setCategory] = useState('');
 	const [value, setValue] = useState([20, 37]);
@@ -57,11 +57,9 @@ const AsideBar = () => {
 
 	//----------------FADE IN EFFECT DURING VIEWPORT CHANGES---------------
 	useEffect(() => {
-		const func = async () => {
-			setFade();
-			setMatchState(!matches);
-		};
-		func();
+		setFade();
+		setMatchState(!matches);
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [matches]);
 	//-----------------LOGIC TO SUBSCRIBE THE VALUES TO DIFFERENT VARIABLES----------------------
 
@@ -73,12 +71,18 @@ const AsideBar = () => {
 			switch (option) {
 				case 'Above 4 stars':
 					option2 = 4;
+					break;
 				case 'Above 3 stars':
 					option2 = 3;
+					break;
 				case 'Above 2 stars':
 					option2 = 2;
+					break;
 				case 'Above 1 star':
 					option2 = 1;
+					break;
+				default:
+					break;
 			}
 			setRating(option2);
 			setRating2(option);

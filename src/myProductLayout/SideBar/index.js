@@ -6,7 +6,7 @@ import { Context } from '../../Context';
 import { Box, Typography } from '@mui/material';
 
 const SideBar = () => {
-	const { handleClickOpen, open } = useContext(Context);
+	const { handleClickOpen } = useContext(Context);
 	return (
 		<Stack direction='column' justifyContent='center'>
 			<Typography

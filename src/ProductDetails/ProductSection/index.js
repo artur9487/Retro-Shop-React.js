@@ -76,6 +76,7 @@ const ProductSection = () => {
 						height: '100%'
 					}}
 					src={image}
+					alt='image'
 				/>
 			</Box>
 			<Typography sx={{ fontFamily: OleoFont }} variant='h4'>
@@ -91,7 +92,7 @@ const ProductSection = () => {
 					of {ratingCount} ratings
 				</Typography>
 			</Stack>
-			{user && pathname != `/yourProduct/${productID}` && (
+			{user && pathname !== `/yourProduct/${productID}` && (
 				<>
 					<Stack direction='row' alignItems='center' spacing={2}>
 						<CustomTextField

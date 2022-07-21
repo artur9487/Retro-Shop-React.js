@@ -52,13 +52,13 @@ const Layout = () => {
 			window.removeEventListener('scroll', handleScroll, true);
 			window.removeEventListener('resize', handleResize, true);
 		};
-	}, []);
+	}, [handleResize, handleScroll]);
 
 	useEffect(() => {
 		if (startScroll) {
 			dispatch(execute_scroll(myRef.current.offsetTop));
 		}
-	}, [startScroll]);
+	}, [startScroll, dispatch]);
 
 	useEffect(() => {
 		if (Number(windowDimensions.height) > Number(scrollPosition + 200)) {

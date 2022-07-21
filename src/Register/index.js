@@ -48,7 +48,7 @@ const Register = () => {
 				navigate('/');
 			}
 		}
-	}, [logError, user]);
+	}, [logError, user, navigate]);
 
 	//------------SETTING THE NEW USER AND VALIDATION LOGIC----------
 	const handleChange = () => {
@@ -94,7 +94,8 @@ const Register = () => {
 		return () => {
 			dispatch(log_error_clean);
 		};
-	}, []);
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [dispatch]);
 
 	return (
 		<>

@@ -16,7 +16,6 @@ import { useSelector } from 'react-redux';
 import { Rating, Box } from '@mui/material';
 import moment from 'moment';
 import styled from 'styled-components';
-import useCustomFadeHook from '../../customHooks/customFadeHook';
 
 const CommentSection = () => {
 	const {
@@ -153,7 +152,7 @@ const CommentSection = () => {
 						)}
 					</List>
 				</div>
-				{user && pathname != `/yourProduct/${productID}` && (
+				{user && pathname !== `/yourProduct/${productID}` && (
 					<Stack sx={{ mt: 3 }} spacing={2} direction='column'>
 						<CustomTextField
 							InputLabelProps={{

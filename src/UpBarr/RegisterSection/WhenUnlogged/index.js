@@ -15,6 +15,7 @@ const WhenUnlogged = ({ handleCloseNavMenu }) => {
 	];
 	useEffect(() => {
 		setFade();
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [matches3]);
 	return (
 		<>

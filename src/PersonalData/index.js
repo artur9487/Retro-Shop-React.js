@@ -26,14 +26,12 @@ const PersonalData = () => {
 	useEffect(() => {
 		dispatch(fetch_orders(email));
 		dispatch(fetch_purchases(email));
-	}, [dispatch]);
+	}, [dispatch, email]);
 	//--------------FADE IN LOGIC-----------------
 	useEffect(() => {
-		const func = () => {
-			setFade();
-			setMatchState(!matches3);
-		};
-		func();
+		setFade();
+		setMatchState(!matches3);
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [matches3]);
 
 	return (

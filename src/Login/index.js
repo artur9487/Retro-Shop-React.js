@@ -44,7 +44,7 @@ const Login = () => {
 				navigate('/');
 			}
 		}
-	}, [logError, user]);
+	}, [logError, user, navigate]);
 
 	//---------------LOGIN------------------
 	const handleChange = () => {
@@ -80,7 +80,8 @@ const Login = () => {
 		return () => {
 			dispatch(log_error_clean);
 		};
-	}, []);
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [dispatch]);
 	//-----------------------------------
 	return (
 		<>

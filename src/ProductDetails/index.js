@@ -41,10 +41,8 @@ const ProductDetails = () => {
 
 	//---------------------FADE IN LOGIC----------------------
 	useEffect(() => {
-		const func = () => {
-			setFade();
-		};
-		func();
+		setFade();
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	//---------------------FETCHING THE COMMENTS----------------------
@@ -54,7 +52,7 @@ const ProductDetails = () => {
 		return () => {
 			setOpen(false);
 		};
-	}, [params]);
+	}, [params, dispatch, productID]);
 
 	//---------------------CLOSING DIALOG-----------------------
 	const handleClose = () => {

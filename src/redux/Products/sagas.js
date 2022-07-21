@@ -132,7 +132,7 @@ export function* orderNotyfication(payload) {
 	const { email, date } = payload;
 	try {
 		let newArr = [];
-		for (var i = 0; i < payload.products.length; i++) {
+		for (let i = 0; i < payload.products.length; i++) {
 			const index = newArr.findIndex((item) => {
 				return item.receiver === payload.products[i].userProduct;
 			});
@@ -169,7 +169,8 @@ export function* orderNotyfication(payload) {
 				};
 			}
 		}
-		newArr.map((item) => {
+		let newArrData = [];
+		newArrData = newArr.forEach((item) => {
 			const nycRef = doc(db, 'Notyfications', `${Math.random()}`);
 			batch.set(nycRef, item);
 		});
@@ -192,8 +193,8 @@ export function* addOrderStart({ payload }) {
 		const batch = writeBatch(db);
 		yield addDoc(collection(db, 'Orders'), order);
 		console.log('Order Added');
-
-		products.map((item) => {
+		let productsData = [];
+		productsData = products.forEach((item) => {
 			const docRef = doc(db, 'Products', item.id);
 			if (item.remain === 0) {
 				batch.delete(docRef);

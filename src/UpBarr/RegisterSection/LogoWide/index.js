@@ -1,7 +1,7 @@
 /** @format */
 
 import React, { useEffect, useState, useContext } from 'react';
-import { Typography, Box } from '@mui/material';
+import { Typography } from '@mui/material';
 import useCustomFadeHook from '../../../customHooks/customFadeHook';
 import { useNavigate } from 'react-router-dom';
 import { MainContext } from '../../../Context';
@@ -14,11 +14,9 @@ const LogoWide = () => {
 
 	//-----------FADE IN LOGIC-----------
 	useEffect(() => {
-		const func = async () => {
-			setFade();
-			setMatchState(!matches3);
-		};
-		func();
+		setFade();
+		setMatchState(!matches3);
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [matches3]);
 	return (
 		<Typography
@@ -34,7 +32,6 @@ const LogoWide = () => {
 				mr: 2,
 				fontStyle: 'italic',
 				fontFamily: 'Oleo Script Swash Caps',
-				display: 'block',
 				display: {
 					textAlign: 'center',
 					xs: 'none',

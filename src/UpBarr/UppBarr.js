@@ -26,7 +26,7 @@ const ResponsiveAppBar = () => {
 	const cartCount = useSelector((state) => state.productsData.cartCount);
 	const startScroll = useSelector((state) => state.UIData.startScroll);
 	const [anchorElNav, setAnchorElNav] = useState(null);
-	const [anchorElUser, setAnchorElUser] = useState(null);
+
 	const pages = [
 		{ navName: 'All Products', navLink: '/' },
 		{ navName: 'Personal Data', navLink: 'personalData' },
@@ -37,7 +37,7 @@ const ResponsiveAppBar = () => {
 		if (startScroll) {
 			dispatch(set_bar_height(myRef.current.offsetHeight));
 		}
-	}, [startScroll]);
+	}, [startScroll, dispatch]);
 
 	//------CLOSING AND OPENING THE NAV MENU-------
 	const handleOpenNavMenu = (event) => {

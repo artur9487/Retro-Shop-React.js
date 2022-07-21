@@ -3,19 +3,15 @@
 import { takeLatest, put, all, call } from 'redux-saga/effects';
 import {
 	SET_COMMENT_START,
-	SET_COMMENT_END,
 	FETCH_COMMENT_START,
 	FETCH_NOTYFICATION_START,
-	SET_CURRENT_USER_END,
 	SET_MARKED
 } from '../types';
 import {
 	collection,
 	addDoc,
 	getDocs,
-	deleteDoc,
 	doc,
-	setDoc,
 	query,
 	where,
 	updateDoc,
@@ -115,7 +111,8 @@ export function* onFetchNotyficationStart() {
 export function* setMarked({ payload }) {
 	const batch = writeBatch(db);
 	try {
-		payload.ids.map((item) => {
+		let data = [];
+		data = payload.ids.forEach((item) => {
 			const docRef = doc(db, 'Notyfications', item);
 			batch.update(docRef, { marked: true });
 		});

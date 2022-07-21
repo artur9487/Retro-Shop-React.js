@@ -67,17 +67,15 @@ const MyProducts = () => {
 
 	//---------------FADING FUNC--------------------
 	useEffect(() => {
-		const func = () => {
-			setFade();
-			setMatchState(!matches);
-		};
-		func();
+		setFade();
+		setMatchState(!matches);
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [matches]);
 
 	//---------FETCHING THE PRODUCTS--------------
 	useEffect(() => {
 		dispatch(fetch_my_products_start(email));
-	}, [dispatch]);
+	}, [dispatch, email]);
 
 	//---------------INITIAL DATA--------------------
 	const dataToStart = () => {
@@ -247,6 +245,33 @@ const MyProducts = () => {
 		}
 	};
 	//---------------------------------------------------------------------------
+	let menuArr = [];
+	menu.forEach((item, indx) => {
+		const tableCell = (
+			<TableCell
+				key={indx}
+				sx={{
+					fontFamily: 'Sofia',
+					fontWeight: 1000,
+					fontSize: 20,
+					fontStyle: 'italic'
+				}}
+				variant='head'
+				size='medium'
+				align='center'>
+				{item}
+			</TableCell>
+		);
+		if (!matchState) {
+			if (indx > 2) {
+				return;
+			} else {
+				return tableCell;
+			}
+		} else {
+			return tableCell;
+		}
+	});
 
 	return (
 		<Context.Provider
@@ -294,32 +319,7 @@ const MyProducts = () => {
 								<Table sx={{ width: '100%' }} aria-label='simple table'>
 									<TableHead>
 										<TableRow>
-											{menu.map((item, indx) => {
-												const tableCell = (
-													<TableCell
-														key={indx}
-														sx={{
-															fontFamily: 'Sofia',
-															fontWeight: 1000,
-															fontSize: 20,
-															fontStyle: 'italic'
-														}}
-														variant='head'
-														size='medium'
-														align='center'>
-														{item}
-													</TableCell>
-												);
-												if (!matchState) {
-													if (indx > 2) {
-														return;
-													} else {
-														return tableCell;
-													}
-												} else {
-													return tableCell;
-												}
-											})}
+											{menuArr}
 											<TableCell
 												sx={{
 													fontFamily: 'Sofia',

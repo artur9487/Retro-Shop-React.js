@@ -43,7 +43,7 @@ const NotyficationSection = () => {
 	//--------FETCH THE NOTYFICATIONS------------
 	useEffect(() => {
 		dispatch(fetch_notyfication_start(email));
-	}, [comments, myProducts]);
+	}, [comments, myProducts, dispatch, email]);
 	//-------------------------------
 	let count = 0;
 	let notIds = [];

@@ -16,11 +16,9 @@ const WhenLogged = ({ cartCount, handleCart, handleSignOut }) => {
 
 	//-------FADE IN LOGIC-----------
 	useEffect(() => {
-		const func = async () => {
-			setFade();
-			setMatchState(!matches3);
-		};
-		func();
+		setFade();
+		setMatchState(!matches3);
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [matches3]);
 
 	return (
