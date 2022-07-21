@@ -76,7 +76,7 @@ const ProductSection = () => {
 						height: '100%'
 					}}
 					src={image}
-					alt='image'
+					alt='productImage'
 				/>
 			</Box>
 			<Typography sx={{ fontFamily: OleoFont }} variant='h4'>

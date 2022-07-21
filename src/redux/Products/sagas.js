@@ -169,8 +169,8 @@ export function* orderNotyfication(payload) {
 				};
 			}
 		}
-		let newArrData = [];
-		newArrData = newArr.forEach((item) => {
+
+		newArr.forEach((item) => {
 			const nycRef = doc(db, 'Notyfications', `${Math.random()}`);
 			batch.set(nycRef, item);
 		});
@@ -193,8 +193,8 @@ export function* addOrderStart({ payload }) {
 		const batch = writeBatch(db);
 		yield addDoc(collection(db, 'Orders'), order);
 		console.log('Order Added');
-		let productsData = [];
-		productsData = products.forEach((item) => {
+
+		products.forEach((item) => {
 			const docRef = doc(db, 'Products', item.id);
 			if (item.remain === 0) {
 				batch.delete(docRef);

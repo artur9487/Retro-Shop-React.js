@@ -66,7 +66,7 @@ const Layout = () => {
 			window.removeEventListener('scroll', handleScroll, true);
 			window.removeEventListener('resize', handleResize, true);
 		}
-	}, [scrollPosition, windowDimensions]);
+	}, [scrollPosition, windowDimensions, handleResize, handleScroll]);
 
 	//-------------------------------------------------------------------------
 

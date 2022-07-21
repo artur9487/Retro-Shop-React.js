@@ -1,5 +1,5 @@
 /** @format */
-import React, { useEffect, useContext, useCallback, useMemo } from 'react';
+import React, { useEffect, useContext } from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import one from './1.jpg';

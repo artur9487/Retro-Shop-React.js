@@ -111,8 +111,7 @@ export function* onFetchNotyficationStart() {
 export function* setMarked({ payload }) {
 	const batch = writeBatch(db);
 	try {
-		let data = [];
-		data = payload.ids.forEach((item) => {
+		payload.ids.forEach((item) => {
 			const docRef = doc(db, 'Notyfications', item);
 			batch.update(docRef, { marked: true });
 		});

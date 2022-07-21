@@ -29,6 +29,7 @@ const ProductLayout = () => {
 
 	useEffect(() => {
 		func();
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [matches, matches2, matches3]);
 
 	const handleChange = (event, value) => {
