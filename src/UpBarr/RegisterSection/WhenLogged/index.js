@@ -34,22 +34,22 @@ const WhenLogged = ({ cartCount, handleCart, handleSignOut }) => {
 					justifyContent={matchState ? 'space-evenly' : 'center'}
 					direction={matchState ? 'row' : 'column'}
 					sx={{ width: !matches2 ? '65%' : '50%' }}>
-					<Badge badgeContent={cartCount} color='primary'>
-						<Tooltip title='Open Cart'>
-							<IconButton
-								sx={{
-									p: 1,
-									mt: 1,
-									bg: 'black',
-									color: 'black',
-									display: 'block',
-									fontSize: !matches3 ? 12 : 4
-								}}
-								onClick={handleCart}>
+					<Tooltip title='Open Cart'>
+						<IconButton
+							sx={{
+								p: 1,
+								mt: 1,
+								bg: 'black',
+								color: 'black',
+								display: 'block',
+								fontSize: !matches3 ? 12 : 4
+							}}
+							onClick={handleCart}>
+							<Badge badgeContent={cartCount} color='primary'>
 								<ShoppingCartIcon sx={{ fontSize: !matches3 ? 25 : 20 }} />
-							</IconButton>
-						</Tooltip>
-					</Badge>
+							</Badge>
+						</IconButton>
+					</Tooltip>
 					<NotyficationSection user={user.email} />
 				</Stack>
 				<Button

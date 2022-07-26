@@ -47,8 +47,7 @@ const NotyficationSection = () => {
 	//-------------------------------
 	let count = 0;
 	let notIds = [];
-	let arrData = [];
-	arrData = noty.forEach((item, indx) => {
+	const notData = noty.map((item, indx) => {
 		notIds.push(item.id);
 		if (item.marked === false) {
 			count++;
@@ -145,7 +144,7 @@ const NotyficationSection = () => {
 						No notyfication yet
 					</Typography>
 				) : (
-					arrData
+					notData
 				)}
 			</Menu>
 		</>
