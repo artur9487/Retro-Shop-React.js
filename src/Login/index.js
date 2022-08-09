@@ -100,6 +100,7 @@ const Login = () => {
 								Login Panel
 							</Typography>
 							<TextField
+								//className={classes.textField}
 								InputLabelProps={{
 									style: {
 										color: 'black',
@@ -108,6 +109,8 @@ const Login = () => {
 										fontSize: 16
 									}
 								}}
+								focused={false}
+								Input={{ color: 'secondary' }}
 								id='standard-basic'
 								label='Email'
 								variant='standard'
@@ -133,6 +136,7 @@ const Login = () => {
 										fontSize: 16
 									}
 								}}
+								focused={false}
 								id='standard-basic'
 								label='Password'
 								variant='standard'
@@ -163,6 +167,26 @@ const Login = () => {
 										This account doesnt exist
 									</Typography>
 								)}
+							{logError === 'Firebase: Error (auth/wrong-password).' &&
+								!error.password &&
+								!error.email && (
+									<Typography
+										textAlign='center'
+										sx={{ color: 'red', fontSize: 16, fontFamily: 'Sofia' }}>
+										Wrong password
+									</Typography>
+								)}
+							{logError ===
+								'Firebase: Access to this account has been temporar…ou can try again later. (auth/too-many-requests).' &&
+								!error.password &&
+								!error.email && (
+									<Typography
+										textAlign='center'
+										sx={{ color: 'red', fontSize: 16, fontFamily: 'Sofia' }}>
+										Too many requests
+									</Typography>
+								)}
+
 							<Button
 								color='inherit'
 								sx={{

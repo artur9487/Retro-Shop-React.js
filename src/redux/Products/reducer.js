@@ -40,8 +40,6 @@ export const productsReducer = (state = INITIAL_STATE, action) => {
 		//-----------------FLITER THE SPECIFIC PRODUCT -----------------------------
 		case FILTER_PRODUCTS:
 			const { priceRange, categoryRange, ratingRange } = action.payload;
-			console.log(action.payload);
-			console.log(state.products);
 			const filtered = state.products.filter((item) => {
 				return (
 					item.category === categoryRange &&
@@ -73,7 +71,9 @@ export const productsReducer = (state = INITIAL_STATE, action) => {
 			} else if (type === 'dashboard') {
 				proCart.push({
 					...proProducts[indx2],
-					productPrice: proProducts[indx2].productPrice * count2,
+					productPrice: (
+						Math.round(proProducts[indx2].productPrice * count2 * 100) / 100
+					).toFixed(2),
 					count: count2,
 					remain: proProducts[indx2].productQuantity - count2
 				});

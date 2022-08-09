@@ -14,6 +14,7 @@ import { Button, Stack, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import './index.scss';
 import styled from 'styled-components';
+import noPhoto from '.././assets/no_photo.jpg';
 
 const DialogComp = () => {
 	const {
@@ -58,12 +59,19 @@ const DialogComp = () => {
 								height: 200,
 								width: '80%'
 							}}>
-							<img
-								style={{ objectFit: 'contain' }}
-								className='myImg'
-								src={image}
-								alt='product'
-							/>
+							{image ? (
+								<img
+									style={{ objectFit: 'contain' }}
+									className='myImg'
+									src={image}
+								/>
+							) : (
+								<img
+									style={{ objectFit: 'contain' }}
+									className='myImg'
+									src={noPhoto}
+								/>
+							)}
 						</Box>
 						<form>
 							<label htmlFor='inpImg' className='inpImgCss'>
@@ -171,7 +179,7 @@ const DialogComp = () => {
 								) : null}
 							</Stack>
 						</Stack>
-						<FormControl
+						<CustomFormField
 							inputprops={{
 								style: {
 									color: 'black',
@@ -181,6 +189,7 @@ const DialogComp = () => {
 								}
 							}}>
 							<InputLabel
+								focused={false}
 								sx={{
 									fontFamily: 'Sofia',
 									color: 'black',
@@ -219,7 +228,7 @@ const DialogComp = () => {
 									No category selected
 								</Typography>
 							)}
-						</FormControl>
+						</CustomFormField>
 					</Stack>
 				</Stack>
 			</DialogContent>
@@ -266,6 +275,14 @@ const DialogComp = () => {
 };
 
 const CustomTextField = styled(TextField)`
+	& .MuiOutlinedInput-root {
+		&.Mui-focused fieldset {
+			border-color: black;
+		}
+	},	
+`;
+
+const CustomFormField = styled(FormControl)`
 	& .MuiOutlinedInput-root {
 		&.Mui-focused fieldset {
 			border-color: black;

@@ -145,6 +145,7 @@ const Register = () => {
 										fontSize: 16
 									}
 								}}
+								focused={false}
 								id='standard-basic'
 								label='Password'
 								variant='standard'
@@ -166,6 +167,7 @@ const Register = () => {
 										fontSize: 16
 									}
 								}}
+								focused={false}
 								id='standard-basic'
 								label='Confirm Password'
 								variant='standard'

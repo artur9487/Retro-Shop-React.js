@@ -245,8 +245,7 @@ const MyProducts = () => {
 		}
 	};
 	//---------------------------------------------------------------------------
-	let menuArr = [];
-	menu.forEach((item, indx) => {
+	const menuArr = menu.map((item, indx) => {
 		const tableCell = (
 			<TableCell
 				key={indx}
@@ -304,7 +303,7 @@ const MyProducts = () => {
 						alignItems='flex-start'
 						justifyContent='flex-start'
 						container
-						direction={matchState ? 'row' : 'column'}
+						direction={'column'}
 						className={`${fadeIn} container`}>
 						<Grid
 							item
