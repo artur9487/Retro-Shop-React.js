@@ -84,11 +84,11 @@ const CarouselSection = () => {
 					boxShadow: '10px 10px 10px rgb(204, 204, 204)'
 				}}>
 				<Carousel
-					dynamicHeight={true}
+					centerSlidePercentage={100}
+					centerMode={true}
 					className='caro'
 					infiniteLoop={true}
 					autoPlay={true}
-					width='100%'
 					transitionTime={3}>
 					<div>
 						<img className='img' src={one} alt='image1' />
