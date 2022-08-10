@@ -84,6 +84,7 @@ const CarouselSection = () => {
 					boxShadow: '10px 10px 10px rgb(204, 204, 204)'
 				}}>
 				<Carousel
+					dynamicHeight={true}
 					className='caro'
 					infiniteLoop={true}
 					autoPlay={true}
