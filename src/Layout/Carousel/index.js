@@ -78,10 +78,12 @@ const CarouselSection = () => {
 				sx={{
 					maxWidth: 900,
 					margin: 'auto',
-					px: !matches ? 10 : !matches3 ? 5 : 2,
-					pt: !matches ? 10 : !matches3 ? 5 : 2,
+					px: !matches ? 3.5 : !matches3 ? 3.5 : 2,
+					pt: !matches ? 3.5 : !matches3 ? 3.5 : 2,
 					bgcolor: 'rgb(246, 246, 246)',
-					boxShadow: '10px 10px 10px rgb(204, 204, 204)'
+					boxShadow: '10px 10px 10px rgb(204, 204, 204)',
+					maxHeight: 630,
+					overflow: 'hidden'
 				}}>
 				<Carousel
 					centerSlidePercentage={100}
@@ -90,15 +92,15 @@ const CarouselSection = () => {
 					infiniteLoop={true}
 					autoPlay={true}
 					transitionTime={3}>
-					<div>
+					<div className='divy'>
 						<img className='img' src={one} alt='image1' />
 						{text}
 					</div>
-					<div>
+					<div className='divy'>
 						<img className='img' src={two} alt='image2' />
 						{text}
 					</div>
-					<div>
+					<div className='divy'>
 						<img className='img' src={three} alt='image3' />
 						{text}
 					</div>
