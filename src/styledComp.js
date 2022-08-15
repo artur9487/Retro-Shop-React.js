@@ -8,11 +8,11 @@ export const StartBar = styled.div`
 	@media (max-width: 600px) {
 		margin-top: 50px;
 		width: 200px;
-		height: ${(props) => props.heightSmall};
+		min-height: ${(props) => props.heightSmall};
 		margin-bottom: 50px;
 	}
 	@media (min-width: 600px) {
-		height: ${(props) => props.heightSmall};
+		min-height: ${(props) => props.heightSmall};
 	}
 	position: absolute;
 	top: 70%;

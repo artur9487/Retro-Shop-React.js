@@ -60,7 +60,7 @@ const ResponsiveAppBar = () => {
 	//---------------------------
 	return (
 		<AppBar
-			sx={{ height: { xs: 100, sm: user ? 140 : 80 } }}
+			sx={{ height: { xs: 100, sm: user ? 150 : 80 } }}
 			ref={myRef}
 			position='fixed'
 			color='default'>

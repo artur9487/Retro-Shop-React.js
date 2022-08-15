@@ -66,14 +66,14 @@ export const productsReducer = (state = INITIAL_STATE, action) => {
 			if (type === 'dashboard' && indx >= 0) {
 				proCartCount = state.cartCount + count2 - proCart[indx].count;
 				proCart[indx].count = count2;
-				proCart[indx].productPrice = proProducts[indx2].productPrice * count2;
+				proCart[indx].productPrice = (
+					proProducts[indx2].productPrice * count2
+				).toFixed(2);
 				proCart[indx].remain = proProducts[indx2].productQuantity - count2;
 			} else if (type === 'dashboard') {
 				proCart.push({
 					...proProducts[indx2],
-					productPrice: (
-						Math.round(proProducts[indx2].productPrice * count2 * 100) / 100
-					).toFixed(2),
+					productPrice: (proProducts[indx2].productPrice * count2).toFixed(2),
 					count: count2,
 					remain: proProducts[indx2].productQuantity - count2
 				});
@@ -83,8 +83,9 @@ export const productsReducer = (state = INITIAL_STATE, action) => {
 					console.log('no much products');
 				} else {
 					proCart[indx].count = proCart[indx].count + 1;
-					proCart[indx].productPrice =
-						proProducts[indx2].productPrice * proCart[indx].count;
+					proCart[indx].productPrice = (
+						proProducts[indx2].productPrice * proCart[indx].count
+					).toFixed(2);
 					proCart[indx].remain =
 						proProducts[indx2].productQuantity - proCart[indx].count;
 					count2 = proCart[indx].count + 1;
@@ -125,8 +126,9 @@ export const productsReducer = (state = INITIAL_STATE, action) => {
 				});
 			} else {
 				proCartt[indxx].count = proCartt[indxx].count - 1;
-				proCartt[indxx].productPrice =
-					proProductss[indxx2].productPrice * proCartt[indxx].count;
+				proCartt[indxx].productPrice = (
+					proProductss[indxx2].productPrice * proCartt[indxx].count
+				).toFixed(2);
 				proCartt[indxx].remain =
 					proProductss[indxx2].productQuantity - proCartt[indxx].count;
 			}

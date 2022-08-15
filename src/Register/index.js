@@ -57,6 +57,7 @@ const Register = () => {
 			return;
 		}
 		if (password === confirmPassword) {
+			dispatch(log_error_clean);
 			dispatch(register_user_start(email, password));
 		} else {
 			setPassError(true);
@@ -100,7 +101,7 @@ const Register = () => {
 	return (
 		<>
 			<section className={fadeIn}>
-				<StartBar heightSmall={'370px'}>
+				<StartBar heightSmall={'300px'}>
 					<Box
 						component='form'
 						sx={{

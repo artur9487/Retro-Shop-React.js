@@ -81,9 +81,7 @@ const CarouselSection = () => {
 					px: !matches ? 3.5 : !matches3 ? 3.5 : 2,
 					pt: !matches ? 3.5 : !matches3 ? 3.5 : 2,
 					bgcolor: 'rgb(246, 246, 246)',
-					boxShadow: '10px 10px 10px rgb(204, 204, 204)',
-					maxHeight: 630,
-					overflow: 'hidden'
+					boxShadow: '10px 10px 10px rgb(204, 204, 204)'
 				}}>
 				<Carousel
 					centerSlidePercentage={100}

@@ -51,6 +51,7 @@ const Login = () => {
 		if (handleErrors() > 0) {
 			return;
 		}
+		dispatch(log_error_clean);
 		dispatch(login_user_start(email, password));
 	};
 
@@ -86,7 +87,7 @@ const Login = () => {
 	return (
 		<>
 			<section className={fadeIn}>
-				<StartBar heightSmall={'280px'}>
+				<StartBar heightSmall={'250px'}>
 					<Box
 						component='form'
 						sx={{ width: '100%' }}

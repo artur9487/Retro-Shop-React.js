@@ -41,7 +41,7 @@ const CartLayout = () => {
 	if (user) {
 		const { email } = user;
 		const total = state2.reduce((one, two) => {
-			return one + Number(two.productPrice);
+			return (one + Number(two.productPrice)).toFixed(2);
 		}, 0);
 
 		const handleCart = () => {
@@ -121,7 +121,6 @@ const CartLayout = () => {
 								spacing={3}>
 								{notif === 'err' && (
 									<Typography
-										className={fadeIn}
 										variant='h6'
 										sx={{ color: 'red', fontFamily: fontOleo, mt: 3 }}>
 										No products in cart!
@@ -129,7 +128,6 @@ const CartLayout = () => {
 								)}
 								{notif === 'succ' && state2.length === 0 && (
 									<Typography
-										className={fadeIn}
 										variant='h6'
 										sx={{ color: 'green', fontFamily: fontOleo, mt: 3 }}>
 										Ordered sucessfully!
