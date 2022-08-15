@@ -53,6 +53,7 @@ const AsideBar = () => {
 	const { fadeIn, setFade } = useCustomFadeHook();
 	const [matchState, setMatchState] = useState(false);
 	const [err, setErr] = useState(false);
+	const [displayState, setDisplayState] = useState(false);
 	const OleoFont = 'Oleo Script Swash Caps';
 
 	//----------------FADE IN EFFECT DURING VIEWPORT CHANGES---------------
@@ -99,11 +100,13 @@ const AsideBar = () => {
 			return;
 		}
 		dispatch(filter_products(category, value, rating));
+		setDisplayState(true);
 		setErr(false);
 	};
 
 	const resetFilter = () => {
 		dispatch(fetch_products(6, 1));
+		setDisplayState(false);
 	};
 	//----------------TOOGLE THE BAR TO OPEN OR CLOSE---------------
 	const handleOpen = (title) => {
@@ -255,7 +258,8 @@ const AsideBar = () => {
 								cursor: 'pointer',
 								fontFamily: OleoFont,
 								fontSize: 22,
-								fontStyle: 'italic'
+								fontStyle: 'italic',
+								display: displayState ? 'none' : 'block'
 							}}
 							textAlign='center'
 							variant='h4'>
@@ -353,7 +357,8 @@ const AsideBar = () => {
 										cursor: 'pointer',
 										textTransform: 'none',
 										fontFamily: OleoFont,
-										fontSize: 22
+										fontSize: 22,
+										display: displayState ? 'none' : 'block'
 									}}
 									variant='outline'>
 									Submit Filter
