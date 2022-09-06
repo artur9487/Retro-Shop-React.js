@@ -9,7 +9,7 @@ import './index.scss';
 import { MainContext } from '../Context';
 
 const Footer = () => {
-	const { matches3 } = useContext(MainContext);
+	const { maxWidth600 } = useContext(MainContext);
 
 	const data = [
 		{
@@ -41,10 +41,10 @@ const Footer = () => {
 					mt: 10
 				}}>
 				<Grid
-					rowSpacing={!matches3 ? 5 : 3}
-					direction={matches3 ? 'column' : 'row'}
+					rowSpacing={!maxWidth600 ? 5 : 3}
+					direction={maxWidth600 ? 'column' : 'row'}
 					container
-					spacing={!matches3 ? 2 : 1}>
+					spacing={!maxWidth600 ? 2 : 1}>
 					<Grid
 						direction='column'
 						alignItems='center'
@@ -54,7 +54,7 @@ const Footer = () => {
 						md={3}>
 						<Typography
 							sx={{ fontFamily: 'Oleo Script Swash Caps' }}
-							variant={!matches3 ? 'h4' : 'h5'}>
+							variant={!maxWidth600 ? 'h4' : 'h5'}>
 							RetroShop
 						</Typography>
 					</Grid>
@@ -62,7 +62,7 @@ const Footer = () => {
 						md={6}
 						container
 						item
-						spacing={!matches3 ? 4 : 0}
+						spacing={!maxWidth600 ? 4 : 0}
 						direction='row'>
 						{data.map((item1, indx) => {
 							return (
@@ -73,7 +73,7 @@ const Footer = () => {
 									xs={6}
 									container
 									item
-									spacing={!matches3 ? 2 : 1}
+									spacing={!maxWidth600 ? 2 : 1}
 									direction='column'>
 									{item1.dat.map((item2, indx) => {
 										return (
@@ -91,7 +91,7 @@ const Footer = () => {
 													<Typography
 														sx={{
 															fontFamily: 'Sofia',
-															fontSize: !matches3 ? 20 : 15
+															fontSize: !maxWidth600 ? 20 : 15
 														}}
 														color='black'
 														variant='subtitle1'>
@@ -118,13 +118,13 @@ const Footer = () => {
 						<Grid item xs={3}>
 							<Typography
 								sx={{ fontFamily: 'Sofia', fontWeight: 1000 }}
-								variant={matches3 ? 'h5' : 'h6'}
+								variant={maxWidth600 ? 'h5' : 'h6'}
 								component='div'>
 								Need help?
 							</Typography>
 							<Typography
 								sx={{ fontFamily: 'Sofia', fontWeight: 1000 }}
-								variant={matches3 ? 'h5' : 'h6'}
+								variant={maxWidth600 ? 'h5' : 'h6'}
 								component='div'>
 								Contact Us
 							</Typography>

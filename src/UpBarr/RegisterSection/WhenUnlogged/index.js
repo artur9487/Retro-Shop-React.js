@@ -7,7 +7,7 @@ import useCustomFadeHook from '../../../customHooks/customFadeHook';
 import { MainContext } from '../../../Context';
 
 const WhenUnlogged = ({ handleCloseNavMenu }) => {
-	const { matches3 } = useContext(MainContext);
+	const { maxWidth600 } = useContext(MainContext);
 	const { fadeIn, setFade } = useCustomFadeHook();
 	const registerPages = [
 		{ navName: 'Login', navLink: 'Login' },
@@ -16,11 +16,11 @@ const WhenUnlogged = ({ handleCloseNavMenu }) => {
 	useEffect(() => {
 		setFade();
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [matches3]);
+	}, [maxWidth600]);
 	return (
 		<>
 			<Stack
-				direction={!matches3 ? 'row' : 'column'}
+				direction={!maxWidth600 ? 'row' : 'column'}
 				justifyContent='center'
 				alignItems='center'
 				className={fadeIn}>

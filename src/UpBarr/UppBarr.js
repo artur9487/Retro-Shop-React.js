@@ -19,7 +19,7 @@ import LogoNarrow from './RegisterSection/LogoNarrow';
 import { MainContext } from '../Context';
 
 const ResponsiveAppBar = () => {
-	const { user, matches3 } = useContext(MainContext);
+	const { user, maxWidth600 } = useContext(MainContext);
 	const myRef = useRef(null);
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
@@ -96,7 +96,7 @@ const ResponsiveAppBar = () => {
 						<Stack
 							sx={{
 								position: 'absolute',
-								top: !matches3 ? 15 : 0,
+								top: !maxWidth600 ? 15 : 0,
 								right: 0,
 								mt: 0
 							}}>

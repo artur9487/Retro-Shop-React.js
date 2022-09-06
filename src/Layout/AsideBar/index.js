@@ -42,7 +42,7 @@ const data = [
 ];
 
 const AsideBar = () => {
-	const { matches } = useContext(MainContext);
+	const { maxWidth1200 } = useContext(MainContext);
 	const dispatch = useDispatch();
 	const [category, setCategory] = useState('');
 	const [value, setValue] = useState([20, 37]);
@@ -59,9 +59,9 @@ const AsideBar = () => {
 	//----------------FADE IN EFFECT DURING VIEWPORT CHANGES---------------
 	useEffect(() => {
 		setFade();
-		setMatchState(!matches);
+		setMatchState(!maxWidth1200);
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [matches]);
+	}, [maxWidth1200]);
 	//-----------------LOGIC TO SUBSCRIBE THE VALUES TO DIFFERENT VARIABLES----------------------
 
 	const handleChange = (type, option) => {
@@ -201,7 +201,7 @@ const AsideBar = () => {
 		return (
 			<FilterSegment key={indx} isOpen={true}>
 				<UpperFilterSegment
-					clickable={matches}
+					clickable={maxWidth1200}
 					onClick={() => handleOpen(item.title)}>
 					<Typography
 						sx={{
@@ -290,7 +290,9 @@ const AsideBar = () => {
 							width: 200,
 							margin: 'auto'
 						}}>
-						<UpperFilterSegment clickable={matches} onClick={handleClickOpen}>
+						<UpperFilterSegment
+							clickable={maxWidth1200}
+							onClick={handleClickOpen}>
 							<Typography
 								variant='typography'
 								onClick={setOpenDialog}

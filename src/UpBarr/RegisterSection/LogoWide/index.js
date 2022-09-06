@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import { MainContext } from '../../../Context';
 
 const LogoWide = () => {
-	const { matches3 } = useContext(MainContext);
+	const { maxWidth600 } = useContext(MainContext);
 	const navigate = useNavigate();
 	const { fadeIn, setFade } = useCustomFadeHook();
 	const [matchState, setMatchState] = useState(false);
@@ -15,9 +15,9 @@ const LogoWide = () => {
 	//-----------FADE IN LOGIC-----------
 	useEffect(() => {
 		setFade();
-		setMatchState(!matches3);
+		setMatchState(!maxWidth600);
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [matches3]);
+	}, [maxWidth600]);
 	return (
 		<Typography
 			onClick={() => navigate('/')}

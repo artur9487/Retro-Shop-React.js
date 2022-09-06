@@ -10,16 +10,16 @@ import { IconButton } from '@mui/material';
 import { MainContext } from '../../../Context';
 
 const WhenLogged = ({ cartCount, handleCart, handleSignOut }) => {
-	const { matches3, matches2, user } = useContext(MainContext);
+	const { maxWidth600, maxWidth900, user } = useContext(MainContext);
 	const { fadeIn, setFade } = useCustomFadeHook();
 	const [matchState, setMatchState] = useState(false);
 
 	//-------FADE IN LOGIC-----------
 	useEffect(() => {
 		setFade();
-		setMatchState(!matches3);
+		setMatchState(!maxWidth600);
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [matches3]);
+	}, [maxWidth600]);
 
 	return (
 		<>
@@ -33,7 +33,7 @@ const WhenLogged = ({ cartCount, handleCart, handleSignOut }) => {
 					alignItems='center'
 					justifyContent={matchState ? 'space-evenly' : 'center'}
 					direction={matchState ? 'row' : 'column'}
-					sx={{ width: !matches2 ? '65%' : '50%' }}>
+					sx={{ width: !maxWidth900 ? '65%' : '50%' }}>
 					<Tooltip title='Open Cart'>
 						<IconButton
 							sx={{
@@ -42,11 +42,11 @@ const WhenLogged = ({ cartCount, handleCart, handleSignOut }) => {
 								bg: 'black',
 								color: 'black',
 								display: 'block',
-								fontSize: !matches3 ? 12 : 4
+								fontSize: !maxWidth600 ? 12 : 4
 							}}
 							onClick={handleCart}>
 							<Badge badgeContent={cartCount} color='primary'>
-								<ShoppingCartIcon sx={{ fontSize: !matches3 ? 25 : 20 }} />
+								<ShoppingCartIcon sx={{ fontSize: !maxWidth600 ? 25 : 20 }} />
 							</Badge>
 						</IconButton>
 					</Tooltip>

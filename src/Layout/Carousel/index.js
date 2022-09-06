@@ -16,7 +16,7 @@ import { Typography } from '@mui/material';
 import { MainContext } from '../../Context';
 
 const CarouselSection = () => {
-	const { matches, matches3 } = useContext(MainContext);
+	const { maxWidth1200, maxWidth600 } = useContext(MainContext);
 	const { fadeIn, setFade } = useCustomFadeHook();
 	const dispatch = useDispatch();
 	const { scrollPos, barHeight, startScroll } = useSelector(
@@ -53,16 +53,16 @@ const CarouselSection = () => {
 				<Typography
 					sx={{
 						fontFamily: 'Oleo Script Swash Caps',
-						fontSize: !matches3 ? 40 : 25
+						fontSize: !maxWidth600 ? 40 : 25
 					}}>
 					Change Your view for new oppurtunites
 				</Typography>
 			</div>
-			{!matches3 ? (
+			{!maxWidth600 ? (
 				<div onClick={() => executeScroll()} className='legend legend2'>
 					<Typography
 						sx={{
-							fontSize: !matches3 ? 20 : 15,
+							fontSize: !maxWidth600 ? 20 : 15,
 							fontFamily: 'Oleo Script Swash Caps'
 						}}>
 						Shop Now
@@ -78,8 +78,8 @@ const CarouselSection = () => {
 				sx={{
 					maxWidth: 900,
 					margin: 'auto',
-					px: !matches ? 3.5 : !matches3 ? 3.5 : 2,
-					pt: !matches ? 3.5 : !matches3 ? 3.5 : 2,
+					px: !maxWidth1200 ? 3.5 : !maxWidth600 ? 3.5 : 2,
+					pt: !maxWidth1200 ? 3.5 : !maxWidth600 ? 3.5 : 2,
 					bgcolor: 'rgb(246, 246, 246)',
 					boxShadow: '10px 10px 10px rgb(204, 204, 204)'
 				}}>

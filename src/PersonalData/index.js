@@ -14,7 +14,7 @@ import { fetch_orders, fetch_purchases } from '../redux/Products/actions';
 
 const PersonalData = () => {
 	const {
-		matches3,
+		maxWidth600,
 		user: { email }
 	} = useContext(MainContext);
 	const { myPurchases, orders } = useSelector((state) => state.productsData);
@@ -30,9 +30,9 @@ const PersonalData = () => {
 	//--------------FADE IN LOGIC-----------------
 	useEffect(() => {
 		setFade();
-		setMatchState(!matches3);
+		setMatchState(!maxWidth600);
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [matches3]);
+	}, [maxWidth600]);
 
 	return (
 		<Box>
@@ -42,7 +42,7 @@ const PersonalData = () => {
 						sx={{ minHeight: '100vh' }}
 						className={`${fadeIn} container`}
 						direction={matchState ? 'row' : 'column'}
-						justifyContent={!matches3 ? 'space-evenly' : 'flex-start'}
+						justifyContent={!maxWidth600 ? 'space-evenly' : 'flex-start'}
 						alignItems={matchState ? 'flex-start' : 'center'}
 						spacing={5}>
 						{orders.length > 0 ? (

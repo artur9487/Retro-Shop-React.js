@@ -26,17 +26,17 @@ function App() {
 		}
 	});
 	const user = useSelector((state) => state.AuthData.user);
-	const matches = useMediaQuery('(max-width:1199px)');
-	const matches2 = useMediaQuery('(max-width:899px)');
-	const matches3 = useMediaQuery('(max-width:599px)');
+	const maxWidth1200 = useMediaQuery('(max-width:1199px)');
+	const maxWidth900 = useMediaQuery('(max-width:899px)');
+	const maxWidth600 = useMediaQuery('(max-width:599px)');
 	return (
 		<ThemeProvider theme={theme}>
 			<MainContext.Provider
 				value={{
 					user,
-					matches,
-					matches2,
-					matches3
+					maxWidth1200,
+					maxWidth900,
+					maxWidth600
 				}}>
 				<RouteCompo>
 					<Routes>

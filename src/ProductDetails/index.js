@@ -21,7 +21,7 @@ import { MainContext } from '../Context';
 import { useLocation } from 'react-router-dom';
 
 const ProductDetails = () => {
-	const { user, matches3 } = useContext(MainContext);
+	const { user, maxWidth600 } = useContext(MainContext);
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
 	const params = useParams();
@@ -72,7 +72,7 @@ const ProductDetails = () => {
 		<>
 			<Context.Provider
 				value={{
-					matches3,
+					maxWidth600,
 					pathname,
 					product,
 					productID,
@@ -104,7 +104,7 @@ const ProductDetails = () => {
 						</Typography>
 					</DialogTitle>
 					<DialogContent>
-						<Stack direction={!matches3 ? 'row' : 'column'} spacing={5}>
+						<Stack direction={!maxWidth600 ? 'row' : 'column'} spacing={5}>
 							<ProductSection />
 							<CommentSection />
 						</Stack>

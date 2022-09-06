@@ -20,7 +20,7 @@ import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 
 const Layout = () => {
-	const { matches, matches3 } = useContext(MainContext);
+	const { maxWidth1200, maxWidth600 } = useContext(MainContext);
 	const dispatch = useDispatch();
 	//----------------------------FADE IN DURING SCROLLING -------------------------------
 	const myRef = useRef(null);
@@ -77,10 +77,10 @@ const Layout = () => {
 					sx={{ width: '100%', minHeight: '100vh', margin: 'auto' }}
 					direction='column'>
 					<CarouselSection />
-					<Box sx={{ mt: !matches3 ? 3 : 0 }} ref={myRef}>
+					<Box sx={{ mt: !maxWidth600 ? 3 : 0 }} ref={myRef}>
 						<Box sx={{ width: '100%' }} ref={myRefek} className={fadeIn}>
 							<Stack
-								sx={{ p: 4, ml: !matches ? 25 : 0 }}
+								sx={{ p: 4, ml: !maxWidth1200 ? 25 : 0 }}
 								justifyContent='center'
 								alignItems='center'
 								direction='row'>
@@ -88,7 +88,7 @@ const Layout = () => {
 									sx={{
 										bgcolor: 'black',
 										height: 3,
-										width: !matches3 ? 200 : 50,
+										width: !maxWidth600 ? 200 : 50,
 										borderRadius: 5
 									}}
 								/>
@@ -97,7 +97,7 @@ const Layout = () => {
 									textAlign='center'
 									sx={{
 										fontFamily: 'Oleo Script Swash Caps',
-										p: !matches3 ? 2 : 1
+										p: !maxWidth600 ? 2 : 1
 									}}>
 									Chose Your style
 								</Typography>
@@ -105,13 +105,13 @@ const Layout = () => {
 									sx={{
 										bgcolor: 'black',
 										height: 3,
-										width: !matches3 ? 200 : 50,
+										width: !maxWidth600 ? 200 : 50,
 										borderRadius: 5
 									}}
 								/>
 							</Stack>
 							<Grid
-								direction={matches ? 'column' : 'row'}
+								direction={maxWidth1200 ? 'column' : 'row'}
 								container
 								spacing={1}>
 								<Grid item xs={2}>

@@ -20,7 +20,7 @@ import { MainContext } from '../../../Context';
 const NotyficationSection = () => {
 	const {
 		user: { email },
-		matches3
+		maxWidth600
 	} = useContext(MainContext);
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
@@ -65,14 +65,14 @@ const NotyficationSection = () => {
 						<Typography
 							sx={{
 								fontFamily: 'Sofia',
-								fontSize: !matches3 ? 18 : 16,
+								fontSize: !maxWidth600 ? 18 : 16,
 								fontWeight: 1000
 							}}
 							variant='body2'>
 							{item.sender}
 						</Typography>
 						<Typography
-							sx={{ fontFamily: 'Sofia', fontSize: !matches3 ? 18 : 16 }}
+							sx={{ fontFamily: 'Sofia', fontSize: !maxWidth600 ? 18 : 16 }}
 							variant='body2'>
 							has commented your product!
 						</Typography>
@@ -93,14 +93,14 @@ const NotyficationSection = () => {
 						<Typography
 							sx={{
 								fontFamily: 'Sofia',
-								fontSize: !matches3 ? 18 : 16,
+								fontSize: !maxWidth600 ? 18 : 16,
 								fontWeight: 1000
 							}}
 							variant='body2'>
 							{item.buyer}
 						</Typography>
 						<Typography
-							sx={{ fontFamily: 'Sofia', fontSize: !matches3 ? 18 : 16 }}
+							sx={{ fontFamily: 'Sofia', fontSize: !maxWidth600 ? 18 : 16 }}
 							variant='body2'>
 							has bought your product!
 						</Typography>
@@ -118,7 +118,7 @@ const NotyficationSection = () => {
 					onClick={handleClick}
 					sx={{ my: 0, color: 'black', display: 'block' }}>
 					<Badge badgeContent={count} color='primary'>
-						<BookmarksIcon sx={{ fontSize: !matches3 ? 25 : 20 }} />
+						<BookmarksIcon sx={{ fontSize: !maxWidth600 ? 25 : 20 }} />
 					</Badge>
 				</IconButton>
 			</Tooltip>

@@ -14,7 +14,7 @@ import { MainContext } from '../../Context';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
 const ProductLayout = () => {
-	const { matches, matches2, matches3 } = useContext(MainContext);
+	const { maxWidth1200, maxWidth900, maxWidth600 } = useContext(MainContext);
 	const dispatch = useDispatch();
 	const products = useSelector((state) => state.productsData);
 	const { fadeIn, setFade } = useCustomFadeHook();
@@ -30,7 +30,7 @@ const ProductLayout = () => {
 	useEffect(() => {
 		func();
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [matches, matches2, matches3]);
+	}, [maxWidth1200, maxWidth900, maxWidth600]);
 
 	const handleChange = (event, value) => {
 		func();

@@ -26,7 +26,7 @@ const CommentSection = () => {
 		fadeIn,
 		error,
 		setError,
-		matches3
+		maxWidth600
 	} = useContext(Context);
 	const [comment, setComment] = useState('');
 	const [value, setValue] = useState(0);
@@ -80,7 +80,7 @@ const CommentSection = () => {
 			<Stack
 				className={fadeIn}
 				direction='column'
-				sx={{ width: !matches3 ? '40%' : '100%' }}>
+				sx={{ width: !maxWidth600 ? '40%' : '100%' }}>
 				<div
 					style={{
 						overflowY: 'scroll',
@@ -201,7 +201,7 @@ const CommentSection = () => {
 								sx={{
 									fontFamily: OleoFont,
 									fontSize: 20,
-									width: !matches3 ? '50%' : '75%',
+									width: !maxWidth600 ? '50%' : '75%',
 									textTransform: 'none',
 									color: 'black'
 								}}

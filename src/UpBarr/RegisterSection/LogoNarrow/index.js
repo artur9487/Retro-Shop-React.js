@@ -21,7 +21,7 @@ const LogoNarrow = ({
 	handleCloseNavMenu,
 	pages
 }) => {
-	const { matches3, user } = useContext(MainContext);
+	const { maxWidth600, user } = useContext(MainContext);
 	const { fadeIn, setFade } = useCustomFadeHook();
 	const [matchState, setMatchState] = useState(false);
 	const navigate = useNavigate();
@@ -29,9 +29,9 @@ const LogoNarrow = ({
 	//-----------FADE IN LOGIC-----------
 	useEffect(() => {
 		setFade();
-		setMatchState(!matches3);
+		setMatchState(!maxWidth600);
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [matches3]);
+	}, [maxWidth600]);
 	//------------------------
 	return (
 		<Stack

@@ -45,7 +45,7 @@ const initErr = {
 
 const MyProducts = () => {
 	const {
-		matches,
+		maxWidth1200,
 		user: { email }
 	} = useContext(MainContext);
 	const navigate = useNavigate();
@@ -68,9 +68,9 @@ const MyProducts = () => {
 	//---------------FADING FUNC--------------------
 	useEffect(() => {
 		setFade();
-		setMatchState(!matches);
+		setMatchState(!maxWidth1200);
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [matches]);
+	}, [maxWidth1200]);
 
 	//---------FETCHING THE PRODUCTS--------------
 	useEffect(() => {

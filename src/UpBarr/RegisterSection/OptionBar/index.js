@@ -8,7 +8,7 @@ import { MainContext } from '../../../Context';
 import { useLocation } from 'react-router-dom';
 
 const OptionBar = ({ handleCloseNavMenu, pages }) => {
-	const { matches3 } = useContext(MainContext);
+	const { maxWidth600 } = useContext(MainContext);
 	const { fadeIn, setFade } = useCustomFadeHook();
 	const [matchState, setMatchState] = useState(false);
 
@@ -21,9 +21,9 @@ const OptionBar = ({ handleCloseNavMenu, pages }) => {
 	//----------FADE IN LOGIC---------------
 	useEffect(() => {
 		setFade();
-		setMatchState(!matches3);
+		setMatchState(!maxWidth600);
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [matches3]);
+	}, [maxWidth600]);
 
 	return (
 		<Stack
