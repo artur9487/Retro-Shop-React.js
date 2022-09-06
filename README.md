@@ -6,5 +6,4 @@ and ratings of his products. The user can check also his history of
 all his purchases and transactions. The app has a cart menu in
 which the user can add or remove different products. In the
 menu the user receives notyfications about the actions like
-comments and purchases of his product. (For better insight
-purposes I 
+comments and purchases of his product. 
